@@ -10,7 +10,6 @@ function ItemListContainer({ greeting }) {
         Aquí es donde en el futuro mostraremos nuestro increíble catálogo de productos.
       </p>
       <div className="mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {/* Placeholders de productos */}
         <div className="bg-gray-50 p-4 rounded-md shadow-sm border border-gray-200">
           <img src="https://placehold.co/150x100/A78BFA/FFFFFF?text=Producto+1" alt="Producto 1" className="w-full h-auto rounded-md mb-2" />
           <h3 className="font-semibold text-gray-800">Producto Ejemplo 1</h3>

@@ -2,7 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Puedes agregar tus estilos personalizados aquí abajo */
 body {
-  font-family: 'Inter', sans-serif; /* Asegúrate de que esta fuente esté disponible o cámbiala */
+  font-family: 'Inter', sans-serif;
 }
