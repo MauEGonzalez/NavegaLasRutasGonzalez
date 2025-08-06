@@ -1,0 +1,10 @@
+.itemList {
+  display: grid;
+
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+
+  gap: 2rem; /* Espacio de 32px entre cada tarjeta */
+  padding: 2rem; /* Espacio alrededor de toda la grilla */
+  max-width: 1200px; /* Un ancho máximo para que no se estire demasiado en pantallas gigantes */
+  margin: 0 auto; /* Centra la grilla en la página */
+}

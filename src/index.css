@@ -1,7 +1,30 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+:root {
+  --color-principal: #6a11cb; 
+  --color-secundario: #2575fc; 
+  --color-fondo: #f4f4f9;     
+  --color-texto: #333;        
+  --color-blanco: #ffffff;
+  --fuente-principal: 'Roboto', sans-serif;
+}
+
 
 body {
-  font-family: 'Inter', sans-serif;
+  font-family: var(--fuente-principal);
+  background-color: var(--color-fondo);
+  color: var(--color-texto);
 }
+
+a {
+  text-decoration: none;
+  color: inherit; 
+}
+

@@ -1,0 +1,36 @@
+
+.navBar {
+  display: flex;
+  justify-content: space-between; /* Alinea los elementos a los extremos */
+  align-items: center;
+  padding: 1rem 2rem; /* 16px arriba/abajo, 32px a los lados */
+  background: linear-gradient(90deg, var(--color-principal), var(--color-secundario));
+  color: var(--color-blanco);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.brand h3 {
+  font-size: 1.5rem; /* 24px */
+  font-weight: bold;
+}
+
+.categories {
+  display: flex;
+  gap: 1.5rem; /* Espacio entre los links */
+}
+
+.categories a {
+  font-size: 1rem; /* 16px */
+  padding: 0.5rem;
+  transition: transform 0.2s ease-in-out;
+}
+
+.categories a:hover {
+  transform: scale(1.1); /* Efecto al pasar el mouse */
+}
+
+/* Clase que React Router agrega al link activo */
+.activeLink {
+  font-weight: bold;
+  border-bottom: 2px solid var(--color-blanco);
+}

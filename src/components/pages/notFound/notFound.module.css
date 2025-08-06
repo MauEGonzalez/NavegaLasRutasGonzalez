@@ -1,0 +1,46 @@
+.notFoundContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center; 
+  align-items: center; 
+  text-align: center;
+  height: 80vh; 
+  padding: 2rem;
+  color: var(--color-texto);
+}
+
+.errorCode {
+  font-size: 10rem; 
+  font-weight: bold;
+  color: var(--color-principal);
+  margin: 0;
+  line-height: 1; 
+}
+
+.title {
+  font-size: 2rem;
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+.message {
+  font-size: 1rem;
+  color: #666;
+  max-width: 450px;
+  margin-bottom: 2.5rem;
+}
+
+.homeButton {
+  background-color: var(--color-principal);
+  color: var(--color-blanco);
+  padding: 0.8rem 1.6rem;
+  border-radius: 5px;
+  font-weight: bold;
+  text-transform: uppercase;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.homeButton:hover {
+  background-color: var(--color-secundario);
+  transform: scale(1.05);
+}
