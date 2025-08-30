@@ -1,0 +1,12 @@
+/* src/components/pages/checkout/Checkout.module.css */
+.checkoutContainer {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 2rem;
+    text-align: center;
+}
+
+.infoText {
+    text-align: center;
+    padding: 4rem 1rem;
+}

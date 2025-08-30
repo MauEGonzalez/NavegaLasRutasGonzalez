@@ -50,3 +50,14 @@
   color: var(--color-blanco);
   border-radius: 5px;
 }
+
+.recommendations {
+    margin-top: 4rem;
+    border-top: 2px solid #eee;
+    padding-top: 2rem;
+}
+.recommendations h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 1.8rem;
+}

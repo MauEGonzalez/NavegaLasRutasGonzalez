@@ -1,31 +1,38 @@
-// En tu componente ItemListContainer.jsx
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import { getProducts, getProductsByCategory } from "../../../utils/api"
-import ItemList from "../../itemList/ItemList"
+import ItemList from "../../common/itemList/ItemList"
+import { getDocs, collection, query, where } from 'firebase/firestore';
+import { db } from "../../../services/firebase/firebaseConfig"
 
 const ItemListContainer = () => {
     const [products, setProducts] = useState([]);
     const [loading, setLoading] = useState(true);
-    
+
     const { categoryId } = useParams();
 
     useEffect(() => {
         setLoading(true);
-        const asyncFunc = categoryId ? getProductsByCategory : getProducts;
 
-        asyncFunc(categoryId)
+        const collectionRef = categoryId 
+            ? query(collection(db, 'products'), where('category', '==', categoryId))
+            : collection(db, 'products');
+
+        getDocs(collectionRef)
             .then(response => {
-                setProducts(response);
+                const productsAdapted = response.docs.map(doc => {
+                    const data = doc.data();
+                    return { ...data, id: doc.id };
+                });
+                setProducts(productsAdapted);
             })
             .catch(error => {
-                console.error('Ocurrió un error:', error);
+                console.error('Error fetching products:', error);
             })
             .finally(() => {
                 setLoading(false);
             });
-            
-    }, [categoryId]); // Se ejecuta cada vez que 'categoryId' cambia en la URL
+
+    }, [categoryId]);
 
     return (
         <div>
