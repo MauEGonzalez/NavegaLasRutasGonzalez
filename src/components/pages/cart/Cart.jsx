@@ -18,18 +18,18 @@ const Cart = () => {
         const productsRef = collection(db, 'products');
         
         try {
-            // Lógica para carrito con productos
+           
             if (cart.length > 0) {
                 const cartIds = cart.map(item => item.id);
                 const firstItemCategory = cart[0].category;
 
-                // PLAN A: Intentar buscar relacionados
+                
                 let q = query(productsRef, where('category', '==', firstItemCategory), limit(8));
                 let response = await getDocs(q);
                 let productsAdapted = response.docs.map(doc => ({ ...doc.data(), id: doc.id }));
                 let filteredRecommended = productsAdapted.filter(prod => !cartIds.includes(prod.id));
 
-                // PLAN B: Si Plan A no encontró nada, buscar aleatorios
+                
                 if (filteredRecommended.length > 0) {
                     setRecommended(filteredRecommended.slice(0, 4));
                 } else {
@@ -38,13 +38,12 @@ const Cart = () => {
                     response = await getDocs(q);
                     productsAdapted = response.docs.map(doc => ({ ...doc.data(), id: doc.id }));
 
-                    // --- ¡AQUÍ ESTÁ EL CAMBIO CLAVE! ---
-                    // Ya no filtramos. Simplemente mezclamos los que encontramos y los mostramos.
+                    
                     const shuffled = productsAdapted.sort(() => 0.5 - Math.random());
                     setRecommended(shuffled.slice(0, 4));
                 }
             } else {
-                // Lógica para carrito vacío (esta ya funcionaba bien)
+                
                 const q = query(productsRef, limit(8));
                 const response = await getDocs(q);
                 const productsAdapted = response.docs.map(doc => ({ ...doc.data(), id: doc.id }));

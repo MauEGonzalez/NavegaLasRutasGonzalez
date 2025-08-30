@@ -1,5 +1,3 @@
-// src/components/pages/itemDetailContainer/ItemDetailContainer.jsx
-
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import ItemDetail from "../../itemDetail/ItemDetail"
@@ -12,7 +10,6 @@ const ItemDetailContainer = () => {
     const [loading, setLoading] = useState(true);
     const { itemId } = useParams();
 
-    // 1. Traemos addItem Y TAMBIÉN isInCart del contexto
     const { addItem, isInCart } = useCart();
 
     useEffect(() => {
@@ -44,7 +41,7 @@ const ItemDetailContainer = () => {
             name: product.name,
             price: product.price,
             img: product.img,
-            category: product.category // <-- ¡AÑADIMOS LA CATEGORÍA!
+            category: product.category 
         };
         addItem(item, quantity);
     }
@@ -55,7 +52,6 @@ const ItemDetailContainer = () => {
             {loading ? (
                 <h1>Cargando...</h1>
             ) : product ? (
-                // 2. Le pasamos una nueva prop que indica si el item ya está en el carrito
                 <ItemDetail {...product} onAdd={handleOnAdd} isItemInCart={isInCart(product.id)} />
             ) : (
                 <h1>El producto no existe.</h1>

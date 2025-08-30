@@ -1,4 +1,4 @@
-// src/components/pages/aboutUs/AboutUs.jsx
+
 import styles from './AboutUs.module.css';
 
 const AboutUs = () => {

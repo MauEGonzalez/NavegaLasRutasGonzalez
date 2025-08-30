@@ -1,4 +1,3 @@
-/* src/components/layout/footer/Footer.module.css */
 .footer {
   background-color: #333;
   color: var(--color-blanco);
@@ -31,7 +30,7 @@
     color: var(--color-secundario);
 }
 .legal {
-    grid-column: 1 / -1; /* Ocupa todo el ancho */
+    grid-column: 1 / -1; 
     margin-top: 1.5rem;
     border-top: 1px solid #555;
     padding-top: 1.5rem;

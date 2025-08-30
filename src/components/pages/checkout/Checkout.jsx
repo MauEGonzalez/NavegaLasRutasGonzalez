@@ -1,11 +1,7 @@
-// src/components/pages/checkout/Checkout.jsx
-
 import { useState } from 'react';
 import { useCart } from '../../../context/CartContext';
 import CheckoutForm from './CheckoutForm';
 import styles from './Checkout.module.css';
-
-// Importamos 'doc' para poder crear una referencia de orden
 import { collection, getDocs, query, where, documentId, writeBatch, doc } from 'firebase/firestore';
 import { db } from '../../../services/firebase/firebaseConfig';
 import { Timestamp } from 'firebase/firestore';
@@ -36,12 +32,6 @@ const Checkout = () => {
             const stockDb = dataDoc.stock;
             const productAddedToCart = cart.find(prod => prod.id === document.id);
             const prodQuantity = productAddedToCart?.quantity;
-
-            // --- CONSOLE LOGS PARA DEPURAR ---
-            console.log(`Producto: ${dataDoc.name}`);
-            console.log(`Stock en DB: ${stockDb} (tipo: ${typeof stockDb})`);
-            console.log(`Cantidad en Carrito: ${prodQuantity} (tipo: ${typeof prodQuantity})`);
-            
             if (stockDb >= prodQuantity) {
                 const newStock = stockDb - prodQuantity;
                 console.log(`   -> OK. Nuevo stock será: ${newStock}`);
@@ -51,10 +41,9 @@ const Checkout = () => {
                 outOfStock.push({ id: document.id, ...dataDoc });
             }
         });
-        console.log("--------------------------");
+        
 
         if (outOfStock.length === 0) {
-            // ... (el resto de la función se mantiene igual) ...
             const orderRef = doc(collection(db, 'orders'));
             const order = { buyer: userData, items: cart, total: totalPrice, date: Timestamp.fromDate(new Date()) };
             batch.set(orderRef, order);
@@ -62,7 +51,6 @@ const Checkout = () => {
             clearCart();
             setOrderId(orderRef.id);
         } else {
-            console.error('Hay productos que están fuera de stock:', outOfStock);
             alert(`Lo sentimos, los siguientes productos no tienen stock suficiente: ${outOfStock.map(p => p.name).join(', ')}`);
         }
     } catch (error) {

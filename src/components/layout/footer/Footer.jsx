@@ -1,4 +1,3 @@
-// src/components/layout/footer/Footer.jsx
 import { Link } from 'react-router-dom';
 import { FaInstagram, FaFacebook, FaWhatsapp } from 'react-icons/fa';
 import styles from './Footer.module.css';
@@ -11,7 +10,6 @@ const Footer = () => {
           <h4>Navegación</h4>
           <Link to="/about-us">Quiénes Somos</Link>
           <Link to="/contact">Contáctanos</Link>
-          {/* Puedes agregar más links aquí */}
         </div>
         <div className={styles.social}>
           <h4>Síguenos</h4>

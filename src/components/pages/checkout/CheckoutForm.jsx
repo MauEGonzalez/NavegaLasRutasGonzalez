@@ -9,11 +9,11 @@ const CheckoutForm = ({ onCreateOrder }) => {
     const handleSubmit = (e) => {
     e.preventDefault();
 
-    // Solo validamos que los campos no estén vacíos (opcional pero bueno)
+   
     if (name && phone && email) {
         onCreateOrder({ name, phone, email });
     } else {
-        // Podrías mostrar un error si quieres
+     
         alert("Por favor, complete todos los campos.");
     }
 };

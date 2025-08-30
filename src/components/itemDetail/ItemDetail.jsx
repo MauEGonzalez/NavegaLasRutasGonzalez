@@ -1,10 +1,8 @@
-// src/components/pages/itemDetailContainer/ItemDetail.jsx
-
 import ItemCount from "../common/itemCount/ItemCount"
-import { Link } from 'react-router-dom'; // Importamos Link
+import { Link } from 'react-router-dom'; 
 import styles from './ItemDetail.module.css';
 
-// 1. Recibimos la nueva prop 'isItemInCart'
+
 const ItemDetail = ({ name, img, category, description, price, stock, onAdd, isItemInCart }) => {
 
   return (
@@ -23,7 +21,7 @@ const ItemDetail = ({ name, img, category, description, price, stock, onAdd, isI
       <footer className={styles.footer}>
         {
           stock > 0 ? (
-            // 2. Usamos un ternario para decidir qué renderizar
+            
             isItemInCart ? (
               <div className={styles.navigationButtons}>
                 <Link to="/cart" className={styles.navButton}>Terminar Compra</Link>

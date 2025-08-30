@@ -1,4 +1,4 @@
-/* src/components/pages/contact/Contact.module.css */
+
 .contactContainer {
   max-width: 900px;
   margin: 2rem auto;
@@ -69,7 +69,6 @@
   background-color: var(--color-secundario);
 }
 
-/* Hacemos que sea responsivo en pantallas chicas */
 @media (max-width: 768px) {
   .content {
     grid-template-columns: 1fr;
