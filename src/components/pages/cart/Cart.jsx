@@ -2,10 +2,10 @@ import { useState, useEffect } from "react";
 import { useCart } from "../../../context/CartContext";
 import { Link } from "react-router-dom";
 import CartItem from "./CartItem";
-import ItemList from "../../common/ItemList/ItemList";
+import ItemList from "../../common/itemList/ItemList";
 import { collection, getDocs, query, where, limit } from "firebase/firestore";
 import { db } from "../../../services/firebase/firebaseConfig";
-import styles from "./Cart.module.css";
+import styles from "./cart.module.css";
 
 const Cart = () => {
   const { cart, clearCart, totalPrice } = useCart();

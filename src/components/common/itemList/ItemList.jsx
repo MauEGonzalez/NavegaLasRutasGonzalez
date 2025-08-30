@@ -1,6 +1,6 @@
-import Item from '../../Item/Item';
+import Item from '../../item/Item';
 
-import styles from './ItemList.module.css';
+import styles from './itemList.module.css';
 
 const ItemList = ({ products }) => {
     return (

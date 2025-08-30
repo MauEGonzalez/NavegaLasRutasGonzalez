@@ -1,6 +1,6 @@
 import ItemCount from "../common/itemCount/ItemCount"
 import { Link } from 'react-router-dom'; 
-import styles from './ItemDetail.module.css';
+import styles from './itemDetail.module.css';
 
 
 const ItemDetail = ({ name, img, category, description, price, stock, onAdd, isItemInCart }) => {
